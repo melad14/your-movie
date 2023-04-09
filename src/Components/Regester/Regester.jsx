@@ -89,7 +89,7 @@ function validationReg(){
       <input onChange={getUserData} type="password" className='form-control myInput mb-2 my-2 ' name='password' id='password'  />
       <p className='text-danger'>{errorList.filter((error)=>error.context.label==='password')[0]?.message}</p>
  
-   <button type='submit' className="btn btn-info my-2 ">
+   <button type='submit' className="btn btn-info  mb-2 ">
      {loading? <i className='fas fa-spinner fa-spin'></i>:'Register'}
      </button>
     
