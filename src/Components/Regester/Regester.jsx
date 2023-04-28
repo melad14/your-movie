@@ -71,7 +71,7 @@ export default function Regester() {
     {error ? <p className='text-danger '>{error}</p> : ''}
 
 
-    <form onSubmit={submitRegister}>
+    <form className='my-5' onSubmit={submitRegister}>
 
       <label htmlFor="first_name ">first_name : </label>
       <input onChange={getUserData} type="text" className='form-control myInput mb-2 my-2 ' name='first_name' id='first_name' />
