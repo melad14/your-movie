@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import MediaItem from '../MediaItem/MediaItem.jsx';
 import { MediaContext } from './../Context/Store';
+import Loading from './../Loading/Loding';
 
 export default function Home() {
 
 
- let{trendingMovie,trendingPerson,trendingTv}=useContext(MediaContext)
+ let{trendingMovie,trendingPerson,trendingTv,loading}=useContext(MediaContext)
  return<>
-  
+      {loading === true ? <Loading /> : null}
   <div className='row my-3'>
     
     <div className="col-md-4 d-flex align-items-center">

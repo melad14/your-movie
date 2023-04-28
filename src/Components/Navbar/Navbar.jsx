@@ -32,11 +32,11 @@ export default function Navbar({userData,logOut}) {
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
      
       <li className="nav-item d-flex">
-          <a className="nav-link text-white" href='#'><i className='fab fa-facebook '></i></a>
-          <a className="nav-link text-white" href='#'><i className='fab fa-instagram '></i></a>
-          <a className="nav-link text-white" href='#'><i className='fab fa-twitter '></i></a>
-          <a className="nav-link text-white" href='#'><i className='fab fa-linkedin '></i></a>
-          <a className="nav-link text-white" href='#'><i className='fab fa-youtube '></i></a>
+          <a className="nav-link text-white" href='#'><i className='fab fa-facebook mx-1'></i></a>
+          <a className="nav-link text-white" href='#'><i className='fab fa-instagram  mx-1'></i></a>
+          <a className="nav-link text-white" href='#'><i className='fab fa-twitter  mx-1'></i></a>
+          <a className="nav-link text-white" href='#'><i className='fab fa-linkedin  mx-1'></i></a>
+          <a className="nav-link text-white" href='#'><i className='fab fa-youtube  mx-1'></i></a>
         </li>
         {userData?    <li className="nav-item">
           <Link onClick={logOut}  className="nav-link text-white" >Logout</Link>

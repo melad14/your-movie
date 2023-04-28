@@ -8,13 +8,14 @@ export default  function MediaContextProvider(props){
     const [trendingMovie, settrendingMovie] = useState([])
     const [trendingTv, settrendingTv] = useState([])
     const [trendingPerson, settrendingPerson] = useState([])
-    
+    const [loading, setLoading] = useState(true)
     
     
      async function getTrend(mediaType,func){
     let{data}= await Axios.get(`https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=2acf94cbe57ef067709c1573363ddb3c`)
     
     func(data.results)
+    setLoading(false)
     }
     
     useEffect(() => {
@@ -28,7 +29,7 @@ export default  function MediaContextProvider(props){
   
 
 
-return <MediaContext.Provider value={{trendingMovie,trendingPerson,trendingTv}}>
+return <MediaContext.Provider value={{trendingMovie,trendingPerson,trendingTv,loading}}>
 
 {props.children}
 

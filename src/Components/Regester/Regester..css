@@ -1,0 +1,10 @@
+@media screen and (min-width: 520px) {
+  form {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 770px) {
+  form {
+    margin-bottom: 15px;
+  }
+}/*# sourceMappingURL=Regester..css.map */

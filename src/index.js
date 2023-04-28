@@ -14,10 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-<MediaContextProvider>
-    <App />
+      <MediaContextProvider>
+        <App />
 
-</MediaContextProvider>
+      </MediaContextProvider>
     </AuthContextProvider>
 
   </React.StrictMode>

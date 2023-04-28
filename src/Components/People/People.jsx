@@ -2,28 +2,24 @@ import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Loading from '../Loading/Loding.jsx'
 
 export default function People() {
   let pageNumber = new Array(10).fill('*').map((el, i) => i + 1)
-
-  const [category, setCategory] = useState('popular')
+const [loading, setLoading] = useState(true)
   const [peopleList, setPeopleList] = useState([])
 
-  async function getPeople(pageNum = 1, type ='popular') {
-    let { data } = await axios.get(`https://api.themoviedb.org/3/person/${type}?api_key=2acf94cbe57ef067709c1573363ddb3c&language=en-US&page=${pageNum}`)
+  async function getPeople(pageNum = 1) {
+    let { data } = await axios.get(`https://api.themoviedb.org/3/person/popular?api_key=2acf94cbe57ef067709c1573363ddb3c&language=en-US&page=${pageNum}`)
     setPeopleList(data.results)
+    setLoading(false)
   }
 
   function changePageNum(i) {
 
-    getPeople(i, category)
+    getPeople(i)
   }
-  function getType(e) {
 
-    let type = e.target.id
-    getPeople(1, type)
-    setCategory(type)
-  }
 
   async function search(e) {
     let value = e.target.value
@@ -47,6 +43,7 @@ export default function People() {
 
 
   return <>
+  {loading === true ? <Loading /> : null}
     <input onChange={search} type="text" className='form-control bg-transparent w-75 mx-auto text-white  ' placeholder='search here' />
 
     <div className='row my-5'>

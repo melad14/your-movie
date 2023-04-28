@@ -2,16 +2,18 @@ import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Loading from '../Loading/Loding.jsx'
 
 export default function Tv() {
   let pageNumber = new Array(10).fill('*').map((el, i) => i + 1)
-
+const [loading, setLoading] = useState(true)
   const [category, setCategory] = useState('popular')
   const [tvList, setTvList] = useState([])
 
   async function getTv(pageNum = 1, type ='popular') {
     let { data } = await axios.get(`https://api.themoviedb.org/3/tv/${type}?api_key=2acf94cbe57ef067709c1573363ddb3c&language=en-US&page=${pageNum}`)
     setTvList(data.results)
+    setLoading(false)
   }
 
   function changePageNum(i) {
@@ -47,6 +49,7 @@ export default function Tv() {
 
 
   return <>
+  {loading === true ? <Loading /> : null}
     <input onChange={search} type="text" className='form-control bg-transparent w-75 mx-auto text-white  ' placeholder='search here' />
 
     <div className='row my-5'>
