@@ -6,11 +6,14 @@ export default function MediaItem({mov}) {
  
   <div  className='col-md-2'>
      <Link to={"/moviedetails/"+mov.id+'/'+mov.media_type}>
-<div className="movie p-2 position-relative ">
+<div className="movie position-relative  ">
   <img className='w-100' src={mov.poster_path?'https://image.tmdb.org/t/p/w500'+mov.poster_path:'https://image.tmdb.org/t/p/w500'+mov.profile_path} alt="" />
-  <h3 className='h6 my-2'>{mov.title} {mov.name} </h3>
   <div className='vote text-center position-absolute top-0 end-0'>{mov.vote_average?.toFixed(1)} </div>
+  <div className=" overlay  d-flex align-items-center justify-content-center">
+    <p>Go To  Details</p>
+  </div>
 </div>
+  <h3 className='h6 my-2'>{mov.title} {mov.name} </h3>
   </Link>
    </div>
 

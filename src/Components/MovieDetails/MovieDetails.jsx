@@ -56,6 +56,7 @@ export default function MovieDetails() {
 
 
     <div className="row my-5">
+      <h3 className='text-center mb-4'>SIMILARS </h3>
       {similars.slice(0, 10).map((mov, index) => <div key={index} className='col-md-2'>
         <Link to={'/movieDetails/' + mov.id + '/' + params.type}>
           <div className="movie p-2 position-relative ">

@@ -23,7 +23,8 @@ export default function Regester() {
     setUser(myUser)
   }
   async function sendUserData() {
-    let { data } = await Axios.post(`https://sticky-note-fe.vercel.app/signup`, user)
+    let { data } = await Axios.post(`https://userapi-haj1.onrender.com/signup`, user)
+    console.log(data);
     if (data.message === "success") {
       navigate('/login')
       setLoading(false)
@@ -42,6 +43,7 @@ export default function Regester() {
     let validation = validationReg()
     if (validation.error) {
       setErrorList(validation.error.details)
+      setLoading(false)
     }
     else {
       sendUserData()
@@ -55,7 +57,7 @@ export default function Regester() {
       last_name: joi.string().min(3).max(8).required(),
       age: joi.number().min(16).max(80).required(),
       email: joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
-      password: joi.string().pattern(/^[A-Z][a-z]{3,8}$/).required(),
+      password: joi.string().pattern(/^[A-Z][a-z0-9]{3,8}$/).required(),
 
     })
 

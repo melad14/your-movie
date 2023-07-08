@@ -6,11 +6,11 @@ import Loading from '../Loading/Loding.jsx'
 
 export default function Tv() {
   let pageNumber = new Array(10).fill('*').map((el, i) => i + 1)
-const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
   const [category, setCategory] = useState('popular')
   const [tvList, setTvList] = useState([])
 
-  async function getTv(pageNum = 1, type ='popular') {
+  async function getTv(pageNum = 1, type = 'popular') {
     let { data } = await axios.get(`https://api.themoviedb.org/3/tv/${type}?api_key=2acf94cbe57ef067709c1573363ddb3c&language=en-US&page=${pageNum}`)
     setTvList(data.results)
     setLoading(false)
@@ -49,7 +49,7 @@ const [loading, setLoading] = useState(true)
 
 
   return <>
-  {loading === true ? <Loading /> : null}
+    {loading === true ? <Loading /> : null}
     <input onChange={search} type="text" className='form-control bg-transparent w-75 mx-auto text-white  ' placeholder='search here' />
 
     <div className='row my-5'>
@@ -67,9 +67,12 @@ const [loading, setLoading] = useState(true)
             <Link to={'/movieDetails/' + tv.id + '/tv'}>
               <div className="movie p-2 position-relative ">
                 <img className='w-100' src={tv.poster_path ? 'https://image.tmdb.org/t/p/w500' + tv.poster_path : 'https://image.tmdb.org/t/p/w500' + tv.profile_path} alt="" />
-                <h3 className='h6 my-2'>{tv.title} {tv.name} </h3>
                 <div className='vote text-center position-absolute top-0 end-0'>{tv.vote_average?.toFixed(1)} </div>
+                <div className=" overlay  d-flex align-items-center justify-content-center">
+                  <p>Go To  Details</p>
+                </div>
               </div>
+              <h3 className='h6 my-2'>{tv.title} {tv.name} </h3>
             </Link>
           </div>)}
         </div>

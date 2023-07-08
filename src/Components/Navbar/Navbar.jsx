@@ -6,7 +6,7 @@ export default function Navbar({userData,logOut}) {
   return<>
   <nav className="navbar navbar-expand-lg bg-transparent navbar-dark  ">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="">your movie</Link>
+    <Link className="navbar-brand" to=""><h3>Noxe</h3></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -23,7 +23,7 @@ export default function Navbar({userData,logOut}) {
           <Link className="nav-link text-white" to="people">People</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" to="tv">Tv</Link>
+          <Link className="nav-link text-white" to="tv">Tv Show</Link>
         </li>
         
  
