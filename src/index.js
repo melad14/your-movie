@@ -12,7 +12,6 @@ import MediaContextProvider from './Components/Context/Store.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <AuthContextProvider>
       <MediaContextProvider>
         <App />
@@ -20,7 +19,6 @@ root.render(
       </MediaContextProvider>
     </AuthContextProvider>
 
-  </React.StrictMode>
 );
 
 

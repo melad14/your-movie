@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Axios from 'axios'
 import joi from 'joi'
 import {useNavigate} from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext.jsx'
 
 
-export default function Login({saveUserData}) {
-
+export default function Login() {
+let {saveUserData}=useContext(AuthContext)
   let navigate=useNavigate()
   const [error, setError] = useState('');
   const [errorList, setErrorList] = useState([])
@@ -21,19 +22,25 @@ export default function Login({saveUserData}) {
     setUser(myUser)
   }
   async function sendUserData(){
-    let {data} =await Axios.post(`https://userapi-haj1.onrender.com/signin`,user)
- 
-    if (data.message==="success"){
-      navigate('/')
+    await Axios.post(`https://userapi-haj1.onrender.com/signin`,user).then((data)=>{
+   navigate('/')
       setLoading(false)
-         localStorage.setItem('userToken',data.token)
+         localStorage.setItem('userToken',data.data.token)
          saveUserData()
-    }
-    else{
+    })
+    .catch((err)=>{
+      
       setLoading(false)
-      setError(data.message)
+      setError(err.response.data.error)
+    })
+ 
+   
+   
+    
+    
+      
     } 
-  }
+  
   
   function submitLogin(e){
     e.preventDefault()
@@ -76,7 +83,7 @@ export default function Login({saveUserData}) {
         <input onChange={getUserData} type="email" className='form-control myInput mb-2 my-2 ' name='email' id='email'  />
         <p className='text-danger'>{errorList.filter((error)=>error.context.label==='email')[0]?.message}</p>
   <label htmlFor="password ">password : </label>
-        <input onChange={getUserData} type="password" className='form-control myInput mb-2 my-2 ' name='password' id='password'  />
+        <input  onChange={getUserData} type="password" className='form-control myInput mb-2 my-2 ' name='password' id='password'  />
         <p className='text-danger'>{errorList.filter((error)=>error.context.label==='password')[0]?.message}</p>
    
      <button type='submit' className="btn btn-info my-2 ">

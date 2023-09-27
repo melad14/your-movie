@@ -64,3 +64,45 @@ export default function Home() {
 
   </>
 }
+
+//redux///////////////
+
+// import React, {  useEffect } from 'react'
+// import MediaItem from '../MediaItem/MediaItem.jsx';
+// import Loading from './../Loading/Loding';
+// import { getTrend } from '../../Redux/dataSlice.js';
+// import { useDispatch, useSelector } from 'react-redux';
+
+// export default function Home() {
+
+//  let {trendMov,loading} =useSelector((state)=>state.mov)
+// let dispatch=useDispatch()
+
+//  useEffect(() => {
+//   dispatch(getTrend('movie'))
+    
+// }, []);
+//  return<>
+//      {loading === true ? <Loading /> : null}
+//   <div className='row my-3'>
+    
+//     <div className="col-md-4 d-flex align-items-center">
+//       <div>
+//       <div className="brdr mb-3 w-25"></div>
+
+//       <h2 className='h4'>trending  <br /> movies <br /> to watch now</h2>
+//       <p className='text-muted py-3'>most watched movie by day</p>
+
+//       <div className="brdr mt-2 w-100"></div>
+//       </div>
+//     </div>
+//      {trendMov?.slice(0,10).map((mov,index)=><MediaItem mov={mov} key={index} /> )}
+//     </div>
+    
+
+    
+  
+  
+
+//   </>
+// }

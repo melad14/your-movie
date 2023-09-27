@@ -3,9 +3,9 @@ import Navbar from './../Navbar/Navbar';
 import Footer from './../Footer/Footer';
 import { Outlet } from 'react-router-dom';
 
-export default function Layout({userData,logOut}) {
+export default function Layout() {
   return<>
-  <Navbar userData={userData} logOut={logOut}/>
+  <Navbar />
   <div className="container my-2">  <Outlet></Outlet> </div>
 
   <Footer/>

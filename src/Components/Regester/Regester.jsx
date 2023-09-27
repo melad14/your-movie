@@ -9,6 +9,8 @@ export default function Regester() {
   const [error, setError] = useState('');
   const [errorList, setErrorList] = useState([])
   const [loading, setLoading] = useState(false)
+
+
   const [user, setUser] = useState({
     first_name: '',
     last_name: '',
@@ -17,23 +19,24 @@ export default function Regester() {
     password: ''
   });
 
+
   function getUserData(e) {
     const myUser = { ...user }
     myUser[e.target.name] = e.target.value
     setUser(myUser)
   }
   async function sendUserData() {
-    let { data } = await Axios.post(`https://userapi-haj1.onrender.com/signup`, user)
-    console.log(data);
-    if (data.message === "success") {
-      navigate('/login')
-      setLoading(false)
+   await Axios.post(`https://userapi-haj1.onrender.com/signup`, user).then((data)=>{
 
-    }
-    else {
-      setLoading(false)
-      setError(data.message)
-    }
+     
+        navigate('/login')
+        setLoading(false)
+   }).catch((err)=>{
+
+    setLoading(false)
+    setError(err.response.data.error)
+   })
+
   }
 
   function submitRegister(e) {

@@ -24,7 +24,7 @@ export default function People() {
   async function search(e) {
     let value = e.target.value
 
-    if (value != '') {
+    if (value !== '') {
       let { data } = await axios.get(`https://api.themoviedb.org/3/search/person?api_key=2acf94cbe57ef067709c1573363ddb3c&language=en-US&query=${value}&page=1&include_adult=false`)
 
       setPeopleList(data.results)
