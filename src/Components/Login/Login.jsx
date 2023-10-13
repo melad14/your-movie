@@ -34,11 +34,6 @@ let {saveUserData}=useContext(AuthContext)
       setError(err.response.data.error)
     })
  
-   
-   
-    
-    
-      
     } 
   
   
