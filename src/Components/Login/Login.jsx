@@ -22,7 +22,7 @@ let {saveUserData}=useContext(AuthContext)
     setUser(myUser)
   }
   async function sendUserData(){
-    await Axios.post(`https://userapi-haj1.onrender.com/signin`,user).then((data)=>{
+    await Axios.post(`https://users-api-ashy.vercel.app/signin`,user).then((data)=>{
    navigate('/')
       setLoading(false)
          localStorage.setItem('userToken',data.data.token)
