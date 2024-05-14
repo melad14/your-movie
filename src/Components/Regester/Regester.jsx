@@ -26,7 +26,7 @@ export default function Regester() {
     setUser(myUser)
   }
   async function sendUserData() {
-   await Axios.post(`https://userapi-haj1.onrender.com/signup`, user).then((data)=>{
+   await Axios.post(`https://users-api-ashy.vercel.app/signup`, user).then((data)=>{
 
      
         navigate('/login')
